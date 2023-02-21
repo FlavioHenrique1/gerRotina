@@ -8,6 +8,20 @@ if(isset($_POST['senha'])){$senha=$_POST['senha']; $hashSenha=$objPass->password
 if(isset($_POST['senhaConf'])){$senhaConf=$_POST['senhaConf'];}else{$senhaConf=null;}
 $dataCreate=date("Y-m-d H:i:s");
 if(isset($_POST['token'])){$token=$_POST['token'];}else{$token=bin2hex(random_bytes(64));}
+if(isset($_POST['atividade'])){$atividade=filter_input(INPUT_POST,'atividade',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$atividade=null;}
+if(isset($_POST['horario'])){$horario=filter_input(INPUT_POST,'horario',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$horario=null;}
+if(isset($_POST['responsavel'])){$responsavel=filter_input(INPUT_POST,'responsavel',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$responsavel=null;}
+if(isset($_POST['observacao'])){$observacao=filter_input(INPUT_POST,'observacao',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$observacao=null;}
+if(isset($_POST['dataAtv'])){$dataAtv=filter_input(INPUT_POST,'dataAtv',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$dataAtv=null;}
+
+$arrAtiv=[
+    "atividade"=>$atividade,
+    "horario"=>$horario,
+    "responsavel"=>$responsavel,
+    "observacao"=>$observacao,
+    "dataAtv"=>$dataAtv,
+    "dataCreate"=>$dataCreate
+];
 
 $arrVar=[
     "nome"=>$nome,

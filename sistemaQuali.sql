@@ -110,7 +110,7 @@ CREATE TABLE `users` (
   `senha` text NOT NULL,
   `dataNascimento` varchar(20) NOT NULL,
   `dataCriacao` datetime NOT NULL,
-  `permition` varchar(20) NOT NULL,
+  `permissoes` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

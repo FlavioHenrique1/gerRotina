@@ -18,10 +18,11 @@ define('BD',"sistemaQuali");
 define('USER',"root");
 define('PASS',"");
 
+include(DIRREQ."ignore/dadosUser.php");
 #Informações do servidor de email
 define("HOSTMAIL","smtp.office365.com");
-define("USERMAIL","");
-define("PASSMAIL","");
+define("USERMAIL",$emailUser);
+define("PASSMAIL",$senhaUser);
 
 
 #Outras Informações
