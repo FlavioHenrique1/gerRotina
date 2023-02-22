@@ -40,11 +40,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Adcionar Atividade</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Atividade</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="post" action="<?= DIRCONT.'controllerAtividade'?>">
+            <form method="post" id="formAddAtiv" action="<?= DIRCONT.'controllerAtividade'?>">
                 <div class="modal-body">
+                    <div id="retorno"></div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Atividade:</label>
                         <input type="text" name="atividade" class="form-control" id="recipient-name">
@@ -68,7 +69,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" >Salvar</button>
+                    <button type="submit" class="btn btn-success" id="btnSalvar" >Salvar</button>
                 </div>
             </form>
         </div>
@@ -76,26 +77,9 @@
 </div>
 <!-- Fim Modal -->
 
-<script src="<?= DIRJS.'atividade.js' ?>"></script>
 <a href="<?= DIRPAGE.'controllers/controllerLogout'; ?>">Sair</a>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-<script>
-    $(document).ready( function () {
-    $('#myTable').DataTable({
-        keys: true,
-        language: {
-            "lengthMenu":"Mostrando _MENU_ registros por página",
-            "zeroRecords": "Nada encontrado",
-            "info":"Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty":"Nenhum registro disponível",
-            "infoFiltered":"(filtrando de _MAX_ registros no total)",
-            "search":"Pesquisar",
-        },
-
-    });
-
-} );
-</script>
+<script src="<?= DIRJS.'atividade.js' ?>"></script>
 <?php \Classes\ClassLayout::setFooter();?>

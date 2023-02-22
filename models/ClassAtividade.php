@@ -40,7 +40,16 @@ class ClassAtividade extends ClassCrud{
         }
         return $dados;
     }
-
+    #deletar Atividade
+    public function deleteAtividade($id){
+        $b=$this->deleteDB(
+            "atividade",
+            "id=?",
+            array(
+                $id
+            )
+        );        
+    }
 
 
 }

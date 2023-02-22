@@ -1,6 +1,6 @@
 <?php 
 
 $ativ=new Classes\ClassValidAtiv();
-
-$ativ->ValidateFinalAtv($arrAtiv);
-echo "atividade salva";
+$ativ->validCampos($atividade,$dataAtv);
+$ret =$ativ->ValidateFinalAtv($arrAtiv);
+echo json_encode($ret);
