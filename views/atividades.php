@@ -10,7 +10,7 @@
           <div class="testeeee">
             <input type="date" name="dataPesquisa" id="dataPesquisa" class="form-control">
             </div>
-            <button type="button" class="btn btn-secondary ">Pesquisar</button>
+            <button type="button" class="btn btn-secondary" id="pesquisarData">Pesquisar</button>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Adcionar</button>
         </div>
     </div>

@@ -23,14 +23,15 @@ class ClassAtividade extends ClassCrud{
     }
 
     #Retorna os dados da atividade
-    public function getAtv()
+    public function getAtv($data)
     {
         $dados=[];
         $b=$this->selectDB(
             "*",
             "atividade",
-            "",
+            "WHERE data=?",
             array(
+                $data
             )
         );
         $r=0;

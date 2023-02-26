@@ -42,8 +42,8 @@ class ClassValidAtiv extends ClassValidate{
         return $arrResponse;
     }
 
-    public function GetAtividade(){
-        $atvs=$this->mAtividade->getAtv();
+    public function GetAtividade($data){
+        $atvs=$this->mAtividade->getAtv($data);
         return $atvs;
     }
     public function deleteAtiv($id){
