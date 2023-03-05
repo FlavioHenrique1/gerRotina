@@ -25,7 +25,34 @@ class ClassValidAtiv extends ClassValidate{
             }
         }
     }
-    
+    // Verificar se a data é valida
+    public function validarDataAtv($data){
+        if (strtotime($data) !== false) {
+            return true;
+        } else {
+            $this->setErro("Data inválida!");
+            return false;
+        }
+
+    }
+
+    public function ValidateFinalEdit($arrAtiv){
+        if(count($this->getErro()) >0){
+            $arrResponse=[
+                "retorno"=>"erro",
+                "erros"=>$this->getErro()
+            ];
+        }else{
+            $arrResponse=[
+                "retorno"=>"success",
+                "page"=>'atividades'
+            ];
+            $this->mAtividade->inserEdit($arrAtiv);
+        }
+        return $arrResponse;
+    }
+
+    #Validação final para adc atividade
     public function ValidateFinalAtv($arrAtiv){
         if(count($this->getErro()) >0){
             $arrResponse=[

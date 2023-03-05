@@ -48,23 +48,33 @@
                     <div id="retorno"></div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Atividade:</label>
-                        <input type="text" name="atividade" class="form-control" id="recipient-name">
+                        <input type="text" name="atividade" class="form-control" id="atividade">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Data:</label>
-                        <input type="date" name="dataAtv" class="form-control" id="recipient-name">
+                        <input type="date" name="dataAtv" class="form-control" id="dataAtv">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Horário:</label>
-                        <input type="text" name="horario" class="form-control" id="recipient-name">
+                        <input type="text" name="horario" class="form-control" id="horario">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Responsavel:</label>
-                        <input type="text" name="responsavel" class="form-control" id="recipient-name">
+                        <input type="text" name="responsavel" class="form-control" id="responsavel">
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="recipient-name" class="col-form-label">Status:</label> -->
+                        <select name="status" class="form-select" id="inputGroupSelect01" id="status">
+                            <option selected disabled>Status...</option>
+                            <option value="PENDENTE">PENDENTE</option>
+                            <option value="OK">OK</option>
+                            <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                        </select>
+                        <!-- <input type="text" name="status" class="form-control" id="status"> -->
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Observações:</label>
-                        <textarea name="observacao" class="form-control" id="recipient-name"></textarea>
+                        <textarea name="observacao" class="form-control" id="obs"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

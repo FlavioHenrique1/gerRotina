@@ -13,6 +13,8 @@ if(isset($_POST['horario'])){$horario=filter_input(INPUT_POST,'horario',FILTER_S
 if(isset($_POST['responsavel'])){$responsavel=filter_input(INPUT_POST,'responsavel',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$responsavel=null;}
 if(isset($_POST['observacao'])){$observacao=filter_input(INPUT_POST,'observacao',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$observacao=null;}
 if(isset($_POST['dataAtv'])){$dataAtv=filter_input(INPUT_POST,'dataAtv',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$dataAtv=null;}
+if(isset($_POST['status'])){$status=filter_input(INPUT_POST,'status',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$status=null;}
+if(isset($_POST['id'])){$id=filter_input(INPUT_POST,'id',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$id=null;}
 
 $arrAtiv=[
     "atividade"=>$atividade,
@@ -20,7 +22,9 @@ $arrAtiv=[
     "responsavel"=>$responsavel,
     "observacao"=>$observacao,
     "dataAtv"=>$dataAtv,
-    "dataCreate"=>$dataCreate
+    "dataCreate"=>$dataCreate,
+    "status"=>$status,
+    "id"=>$id
 ];
 
 $arrVar=[

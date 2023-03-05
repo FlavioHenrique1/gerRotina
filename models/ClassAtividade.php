@@ -14,13 +14,31 @@ class ClassAtividade extends ClassCrud{
                 $arrAtiv['atividade'],
                 $arrAtiv['horario'],
                 $arrAtiv['responsavel'],
-                "",
+                $arrAtiv['status'],
                 $arrAtiv['observacao'],
                 $arrAtiv['dataAtv'],
                 $arrAtiv['dataCreate']
             )
         );
     }
+    #Realizar a edição dos dados
+    public function inserEdit($arrDadosE){
+        $b=$this->updateDB(
+            "atividade",
+            "atividade=?, prazo=?, responsavel=?, status=?, obs=?, data=?",
+            "id=?",
+            array(
+                $arrDadosE['atividade'],
+                $arrDadosE['horario'],
+                $arrDadosE['responsavel'],
+                $arrDadosE['status'],
+                $arrDadosE['observacao'],
+                $arrDadosE['dataAtv'],
+                $arrDadosE['id'],
+            )
+        );
+    }
+
 
     #Retorna os dados da atividade
     public function getAtv($data)
