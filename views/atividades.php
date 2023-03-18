@@ -1,4 +1,4 @@
-<?php //\Classes\ClassLayout::setHeadRestrito("user");?>
+<?php \Classes\ClassLayout::setHeadRestrito("user");?>
 <?php \Classes\ClassLayout::setHeader('Área Restrita','Exclusivos para membros');?>
 <?php \Classes\ClassLayout::setNav();?>
 
@@ -66,9 +66,9 @@
                         <!-- <label for="recipient-name" class="col-form-label">Status:</label> -->
                         <select name="status" class="form-select" id="inputGroupSelect01" id="status">
                             <option selected disabled>Status...</option>
-                            <option value="PENDENTE">PENDENTE</option>
+                            <option value="Pendente">Pendente</option>
                             <option value="OK">OK</option>
-                            <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                            <option value="Em Andamento">Em Andamento</option>
                         </select>
                         <!-- <input type="text" name="status" class="form-control" id="status"> -->
                     </div>
@@ -87,7 +87,6 @@
 </div>
 <!-- Fim Modal -->
 
-<a href="<?= DIRPAGE.'controllers/controllerLogout'; ?>">Sair</a>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>

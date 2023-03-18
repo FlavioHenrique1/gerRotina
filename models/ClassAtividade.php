@@ -70,5 +70,41 @@ class ClassAtividade extends ClassCrud{
         );        
     }
 
+    #Selecionar atividades de rotina e adc no dia
+    public function inserAtiRot($nDia)
+    {   
+        $dataCreate=date("Y-m-d H:i:s");
+        $data=date("Y-m-d");
+        $dados=[];
+        $b=$this->selectDB(
+            "*",
+            "atividadesrot",
+            "WHERE dia=?",
+            array(
+                $nDia
+            )
+        );
+        $r=0;
+        while($f=$b->fetch(\PDO::FETCH_ASSOC)){
+            $this->insertDB(
+                "atividade",
+                "?,?,?,?,?,?,?,?",
+                array(
+                    0,
+                    $f['atividade'],
+                    $f['prazo'],
+                    $f['responsavel'],
+                    $f['status'],
+                    $f['obs'],
+                    $data,
+                    $dataCreate
+                )
+            );
+            $dados[$r]=$f;
+            $r++;
+        }
+        return $dados;
+    }
+
 
 }

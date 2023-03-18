@@ -12,7 +12,7 @@ class ClassValidAtiv extends ClassValidate{
     {
         $this->mAtividade=new ClassAtividade();
     }
-
+    //Validar campos prara adc atividades
     public function validCampos($atividade,$data){
         if($atividade == "" ){
             $this->setErro("Preencha os campos obrigatórios!");
@@ -35,7 +35,7 @@ class ClassValidAtiv extends ClassValidate{
         }
 
     }
-
+    //Validação final da edição
     public function ValidateFinalEdit($arrAtiv){
         if(count($this->getErro()) >0){
             $arrResponse=[
@@ -68,14 +68,21 @@ class ClassValidAtiv extends ClassValidate{
         }
         return $arrResponse;
     }
-
+    #Get de atividades
     public function GetAtividade($data){
         $atvs=$this->mAtividade->getAtv($data);
         return $atvs;
     }
+    #Deletar atividades
     public function deleteAtiv($id){
         $atvs=$this->mAtividade->deleteAtividade($id);
 
+    }
+
+    #Validar e inserir tarefas de rotinas
+    public function ValidateTarRot($nDia){
+        $atvs=$this->mAtividade->inserAtiRot($nDia);
+        return $atvs;
     }
     
 }

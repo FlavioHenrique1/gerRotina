@@ -243,7 +243,7 @@ class ClassValidate{
         }else{
             $arrResponse=[
                 "retorno"=>"success",
-                "page"=>'areaRestrita',
+                "page"=>'atividades',
                 "tentativas"=>$this->tentativas
             ];
             $this->login->deleteAttempt();

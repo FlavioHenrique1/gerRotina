@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Jan-2023 às 09:20
--- Versão do servidor: 10.4.8-MariaDB
--- versão do PHP: 7.3.11
+-- Tempo de geração: 18-Mar-2023 às 00:41
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,25 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `qualidade`
+-- Banco de dados: `sistemaquali`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `abs`
---
-
-CREATE TABLE `abs` (
-  `id` int(11) NOT NULL,
-  `Prontuario` int(11) NOT NULL,
-  `status` varchar(60) NOT NULL,
-  `data` datetime NOT NULL,
-  `Setor` varchar(60) NOT NULL,
-  `turno` varchar(40) NOT NULL,
-  `Ip` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 -- --------------------------------------------------------
 
@@ -53,24 +35,26 @@ CREATE TABLE `atividade` (
   `status` varchar(40) NOT NULL,
   `obs` text NOT NULL,
   `data` date NOT NULL,
-  `dataCriacao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `dataCriacao` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ativos`
+-- Estrutura da tabela `atividadesrot`
 --
 
-CREATE TABLE `ativos` (
+CREATE TABLE `atividadesrot` (
   `id` int(11) NOT NULL,
-  `Prontuario` int(11) NOT NULL,
-  `Nome` varchar(60) NOT NULL,
-  `cargo` varchar(100) NOT NULL,
-  `dataAdm` date NOT NULL,
-  `c_custo` varchar(40) NOT NULL,
-  `area` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `atividade` varchar(150) NOT NULL,
+  `prazo` varchar(40) NOT NULL,
+  `responsavel` varchar(80) NOT NULL,
+  `status` varchar(40) NOT NULL,
+  `obs` text NOT NULL,
+  `data` date NOT NULL,
+  `dataCriacao` datetime NOT NULL,
+  `dia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +66,7 @@ CREATE TABLE `attempt` (
   `id` int(11) NOT NULL,
   `ip` varchar(40) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -94,7 +78,7 @@ CREATE TABLE `confirmation` (
   `id` int(11) NOT NULL,
   `email` varchar(80) NOT NULL,
   `token` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -112,18 +96,11 @@ CREATE TABLE `users` (
   `dataCriacao` datetime NOT NULL,
   `permissoes` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `abs`
---
-ALTER TABLE `abs`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `atividade`
@@ -132,11 +109,10 @@ ALTER TABLE `atividade`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `ativos`
+-- Índices para tabela `atividadesrot`
 --
-ALTER TABLE `ativos`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Prontuario` (`Prontuario`);
+ALTER TABLE `atividadesrot`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `attempt`
@@ -151,76 +127,32 @@ ALTER TABLE `confirmation`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices para tabela `setor`
---
-ALTER TABLE `setor`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `prontuario` (`prontuario`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `abs`
---
-ALTER TABLE `abs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
-
---
 -- AUTO_INCREMENT de tabela `atividade`
 --
 ALTER TABLE `atividade`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT de tabela `atividadesrot`
+--
+ALTER TABLE `atividadesrot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `ativos`
---
-ALTER TABLE `ativos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
-
---
--- AUTO_INCREMENT de tabela `attempt`
---
-ALTER TABLE `attempt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT de tabela `confirmation`
---
-ALTER TABLE `confirmation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `setor`
---
-ALTER TABLE `setor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
