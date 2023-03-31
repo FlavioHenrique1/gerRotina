@@ -72,7 +72,7 @@ class ClassLayout{
                                     Opções
                                 </a>
                                 <ul class='dropdown-menu'>
-                                    <li><a class='dropdown-item' href='".DIRCONT."controllerAtvRot'>Adc. Atividade</a></li>
+                                    <li><a class='dropdown-item' id='btnAtvRot' href='".DIRCONT."controllerAtvRot'>Adc. Atividade</a></li>
                                     <li><a class='dropdown-item' href='#'>Another action</a></li>
                                     <li><hr class='dropdown-divider'></li>
                                     <li><a class='dropdown-item' href='#'>Something else here</a></li>

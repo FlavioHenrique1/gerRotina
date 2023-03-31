@@ -1,9 +1,8 @@
 <?php 
 $nDia= date("N");
+$nDia= 5;
 
 $ativ=new Classes\ClassValidAtiv();
 $dados=$ativ->ValidateTarRot($nDia);
 
-var_dump($dados);
-
-
+echo json_encode($dados);
