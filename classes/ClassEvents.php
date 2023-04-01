@@ -15,6 +15,11 @@ class ClassEvents extends ClassCalendario{
         
     }
 
+    #validação finaldo do insert calendario
+    public function validateFinEdit($arrEvents){
+        $b=$this->editCale($arrEvents);
+        
+    }
 
 
 }

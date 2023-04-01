@@ -16,6 +16,7 @@ $date=new \DateTime($_GET['date'],new \DateTimeZone('America/Sao_Paulo'));
             <option value="2">2h</option>
             <option value="3">3h</option>
         </select><br>
+        <input type="color" name="color" id="color"><br>
         <input type="submit" value="Marcar consulta">
     </form>
 <?php \Classes\ClassLayout::setFooter();?>
