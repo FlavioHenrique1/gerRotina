@@ -16,6 +16,7 @@ class ClassValidate{
     private $login;
     private $session;
     private $mail;
+    private $tentativas;
 
     public function __construct()
     {
@@ -99,6 +100,21 @@ class ClassValidate{
         }
     }
 
+    #Validação se o local esta preenchido
+    public function validateSelectCad($local,$cargo,$setor)
+    {
+        if($local == null or $cargo == null or $setor == null){
+            $this->setErro("Preencha todos os dados!");
+            return false;
+        }else if($local == "Local..." or $setor == "Setor..." or $cargo == "Cargo..."){
+            $this->setErro("Preencha todos os dados!");
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+
     #Validação se a data é igual a data do banco de dados
     public function validateDataNascimento($dataNascimento,$email)
     {
@@ -110,29 +126,28 @@ class ClassValidate{
             return false;
         }
     }
-
-
+    
     #Validação se é um cpf real
-    public function validateCpf($par)
-    {
-        $cpf = preg_replace('/[^0-9]/', '', (string) $par);
-        if (strlen($cpf) != 11){
-            $this->setErro("Cpf Inválido!");
-            return false;
-        }
-        for ($i = 0, $j = 10, $soma = 0; $i < 9; $i++, $j--)
-            $soma += $cpf[$i] * $j;
-            $resto = $soma % 11;
-        if ($cpf[9] != ($resto < 2 ? 0 : 11 - $resto))
-        {
-            $this->setErro("Cpf Inválido!");
-            return false;
-        }
-        for ($i = 0, $j = 11, $soma = 0; $i < 10; $i++, $j--)
-            $soma += $cpf[$i] * $j;
-            $resto = $soma % 11;
-            return $cpf[10] == ($resto < 2 ? 0 : 11 - $resto);
-    }
+    // public function validateCpf($par)
+    // {
+    //     $cpf = preg_replace('/[^0-9]/', '', (string) $par);
+    //     if (strlen($cpf) != 11){
+    //         $this->setErro("Cpf Inválido!");
+    //         return false;
+    //     }
+    //     for ($i = 0, $j = 10, $soma = 0; $i < 9; $i++, $j--)
+    //         $soma += $cpf[$i] * $j;
+    //         $resto = $soma % 11;
+    //     if ($cpf[9] != ($resto < 2 ? 0 : 11 - $resto))
+    //     {
+    //         $this->setErro("Cpf Inválido!");
+    //         return false;
+    //     }
+    //     for ($i = 0, $j = 11, $soma = 0; $i < 10; $i++, $j--)
+    //         $soma += $cpf[$i] * $j;
+    //         $resto = $soma % 11;
+    //         return $cpf[10] == ($resto < 2 ? 0 : 11 - $resto);
+    // }
 
     #Verificar se a senha é igual a confirmação de senha
     public function validateConfSenha($senha,$senhaConf)
@@ -170,8 +185,14 @@ class ClassValidate{
             $this->setErro("Usuário ou Senha Inválidos!");
             return false;
         }
-    
     }
+
+    #selecionar dados para cadastro setor e cargo
+    public function GetDadosCad(){
+        $ret=$this->cadastro->getDataCad();
+        return $ret;
+    }
+
 
     #Validação final do cadastro
     public function validateFinalCad($arrVar)
@@ -182,16 +203,16 @@ class ClassValidate{
                 "erros"=>$this->getErro()
             ];
         }else{
-            $this->mail->sendMail(
-                $arrVar['email'],
-                $arrVar['nome'],
-                $arrVar['token'],
-                "confirmação de cadastro",
-                "
-                <strong>Cadastro do Site</strong><br>".
-                $arrVar['nome']."<br>Confirme seu email <a href='".DIRPAGE."controllers/controllerConfirmacao/{$arrVar['email']}/{$arrVar['token']}'>Clicando Aqui</a>
-                "
-            );
+            // $this->mail->sendMail(
+            //     $arrVar['email'],
+            //     $arrVar['nome'],
+            //     $arrVar['token'],
+            //     "confirmação de cadastro",
+            //     "
+            //     <strong>Cadastro do Site</strong><br>".
+            //     $arrVar['nome']."<br>Confirme seu email <a href='".DIRPAGE."controllers/controllerConfirmacao/{$arrVar['email']}/{$arrVar['token']}'>Clicando Aqui</a>
+            //     "
+            // );
             $arrResponse=[
                 "retorno"=>"success",
                 "erros"=>null

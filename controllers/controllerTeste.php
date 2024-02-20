@@ -1,5 +1,10 @@
 <?php
+@session_start();
 
-$e=$_POST;
+$_SESSION['local'] = $_POST['local'];
 
-echo json_encode($e);
+echo "
+<script>
+    window.location.href='".DIRPAGE."atividades';
+</script>
+";

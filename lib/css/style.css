@@ -1,6 +1,15 @@
 /*sistema*/
 *{margin: 0; padding: 0;box-sizing: border-box;} */
-a{text-decoration: none; color: #333;}
+a{text-decoration: none !important ; color: #333 !important;}
+a{text-decoration: none; color: #0b0230;}
+/* Configurando o span do cadastro */
+.spanCad{
+    color: #0320a2;
+}
+.spanCad:hover{
+    color: #1d46fc;
+    font-size: 18px;
+}
 
 /*classes auxiliares*/
 .float{float: left;}
@@ -14,6 +23,7 @@ a{text-decoration: none; color: #333;}
 .inputform{margin: 15px 0;border: 1px solid #bbb;border-radius: 2px;font-size: 16px;padding: 0 10px;}
 
 .inputSubmit{width: 30%;background: #025158;font-weight: bold;color: #fff;border: none;border-radius: 2px;cursor: pointer;}
+.inputCancelar{width: 30%;background: #8d8a8a;font-weight: bold;color: #fff;border: none;border-radius: 2px;cursor: pointer;}
 
 .inputSubmit:hover{opacity: 0.8;}
 
@@ -25,7 +35,7 @@ a{text-decoration: none; color: #333;}
 .cadastro{float: left;width: 60%;margin: 15px 20%;}
 .topFaixa{height: 50px;background: #025158;font-weight: bold;color: #fff;line-height: 50px;}
 .resultadoForm{margin-top: 20px; font-weight: bold;color: red;line-height: 20px;}
-.imgTabela{width: 30px; height: 25px;}
+.imgTabela{width: 30px; height: 25px; cursor: pointer;}
 .imgTabela:hover{opacity: 0.8; height: 30px;width: 35px;} 
 .form{
     width: 50%;
@@ -41,7 +51,7 @@ a{text-decoration: none; color: #333;}
     color: rgb(177, 136, 3);
     font-weight: bold;
 }
-.statusOK{
+.statusConcluído{
     color: rgb(5, 160, 31);
     font-weight: bold;
 }
@@ -57,6 +67,20 @@ a{text-decoration: none; color: #333;}
     width: 35px;
     height: 35px;
 }
+.loginspan{
+    color: rgb(126, 124, 124);
+    font-size: 13px;
+}
+
+/* --  Calendário -- */
+
+.calendar{
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 8%;
+}
+
+/* --- */
 
 @media screen and (max-width: 480px){
 
@@ -83,4 +107,32 @@ a{text-decoration: none; color: #333;}
 
 @media screen and (min-width:1200px){
 
+}
+
+
+/** PAGINA DE EDIÇÃO DO USUARIO ****/
+
+.imgEdit {
+    width: 250px;
+    height: 250px;
+    /* border-radius: 50%; */
+    /* overflow: hidden; */
+    position: relative;
+    margin: 5px;
+}
+
+.imgEdit img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover;
+    object-position: center;
+    clip-path: circle(50% at center); */
+}
+#tabelaBody td{
+    cursor: pointer;
+}
+.alterAtivTab{
+    border: none !important;
+    outline: 0;
+    border-radius: 2px;
 }

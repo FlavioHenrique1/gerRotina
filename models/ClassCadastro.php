@@ -8,7 +8,7 @@ class ClassCadastro extends ClassCrud{
     {
         $this->insertDB(
             "users",
-            "?,?,?,?,?,?,?,?,?",
+            "?,?,?,?,?,?,?,?,?,?,?,?,?,?",
             array(
                 0,
                 $arrVar['nome'],
@@ -16,9 +16,14 @@ class ClassCadastro extends ClassCrud{
                 $arrVar['email'],
                 $arrVar['hashSenha'],
                 $arrVar['dataNascimento'],
+                $arrVar['local'],
                 $arrVar['dataCreate'],
                 'user',
-                'confirmation'
+                'confirmation',
+                $arrVar['cargo'],
+                $arrVar['setor'],
+                "",
+                ""
             )
         );
         $this->insConfirmation($arrVar);
@@ -36,6 +41,7 @@ class ClassCadastro extends ClassCrud{
             )
         );
     }
+    
     #Veriricar se já existe o mesmo email cadastro no db
     public function getIssetEmail($email)
     {
@@ -122,6 +128,72 @@ class ClassCadastro extends ClassCrud{
         }
     }
 
+    #Verificar a confirmação de senha
+    public function alterarSenha($email,$hashSenha,$dataN)
+    {
+        $b=$this->selectDB(
+            "*",
+            "users",
+            "where email=? and dataNascimento=?",
+            array(
+                $email,
+                $dataN
+            )
+        );
+        $r=$b->rowCount();
+            if($r >0){
+                $this->updateDB(
+                    "users",
+                    "senha=?",
+                    "email=?",
+                array(
+                    $hashSenha,
+                    $email
+                    )
+                );
+                return true;
+            }else{
+                return false;
+            }
+
+    }
+
+    #Retorna os dados do usuário
+    public function getDataCad()
+    {
+        $b=$this->selectDB(
+            "*",
+            "cargo",
+            "",
+            array(
+            )
+        );
+        $f=$b->fetchAll(\PDO::FETCH_ASSOC);
+        
+        $t=$this->selectDB(
+            "*",
+            "setor",
+            "",
+            array(
+            )
+        );
+        $g=$t->fetchAll(\PDO::FETCH_ASSOC);
+
+        $C=$this->selectDB(
+            "*",
+            "cd",
+            "",
+            array(
+            )
+        );
+        $CC=$C->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $arrData=[
+            "cargo"=>$f,
+            "setor"=>$g,
+            "cd"=>$CC
+        ];
+    }
 
 
 }

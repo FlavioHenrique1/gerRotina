@@ -3,9 +3,11 @@
 $validate=new Classes\ClassValidate();
 $validate->validateFields($_POST);
 $validate->validateEmail($email);
-$validate->validateIssetEmail($email,"login");
+$valid=$validate->validateIssetEmail($email,"login");
 #$validate->validateStrongSenha($senha);
-$validate->validateSenha($email,$senha);
-$validate->validateUserActive($email);
+if($valid == true){
+    $validate->validateSenha($email,$senha);
+}
+#$validate->validateUserActive($email);
 $validate->validateAttemptLogin();
 echo $validate->validateFinalLogin($email);

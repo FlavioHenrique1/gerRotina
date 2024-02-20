@@ -6,6 +6,9 @@ if(isset($_POST['prontuario'])){$prontuario=filter_input(INPUT_POST,'prontuario'
 if(isset($_POST['dataNascimento'])){$dataNascimento=filter_input(INPUT_POST,'dataNascimento',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$dataNascimento=null;}
 if(isset($_POST['senha'])){$senha=$_POST['senha']; $hashSenha=$objPass->passwordHash($senha) ;}else{$senha=null; $hashSenha=null;}
 if(isset($_POST['senhaConf'])){$senhaConf=$_POST['senhaConf'];}else{$senhaConf=null;}
+if(isset($_POST['local'])){$local=filter_input(INPUT_POST,'local',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$local=null;}
+if(isset($_POST['setor'])){$setor=filter_input(INPUT_POST,'setor',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$setor=null;}
+if(isset($_POST['cargo'])){$cargo=filter_input(INPUT_POST,'cargo',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$cargo=null;}
 $dataCreate=date("Y-m-d H:i:s");
 if(isset($_POST['token'])){$token=$_POST['token'];}else{$token=bin2hex(random_bytes(64));}
 if(isset($_POST['atividade'])){$atividade=filter_input(INPUT_POST,'atividade',FILTER_SANITIZE_FULL_SPECIAL_CHARS);}else{$atividade=null;}
@@ -36,4 +39,7 @@ $arrVar=[
     "hashSenha"=>$hashSenha,
     "dataCreate"=>$dataCreate,
     "token"=>$token,
+    "local"=>$local,
+    "setor"=>$setor,
+    "cargo"=>$cargo
 ];

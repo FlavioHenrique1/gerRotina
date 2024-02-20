@@ -51,7 +51,12 @@ class ClassValidAtiv extends ClassValidate{
         }
         return $arrResponse;
     }
+    //Validação final da edição
+    public function ValidateEditTab($dados){
 
+        $ret=$this->mAtividade->inserEditTab($dados['id'],$dados['coluna'],$dados['infor']);
+        return $ret;
+    }
     #Validação final para adc atividade
     public function ValidateFinalAtv($arrAtiv){
         if(count($this->getErro()) >0){
@@ -73,6 +78,7 @@ class ClassValidAtiv extends ClassValidate{
         $atvs=$this->mAtividade->getAtv($data);
         return $atvs;
     }
+
     #Deletar atividades
     public function deleteAtiv($id){
         $atvs=$this->mAtividade->deleteAtividade($id);
@@ -84,5 +90,11 @@ class ClassValidAtiv extends ClassValidate{
         $atvs=$this->mAtividade->inserAtiRot($nDia);
         return $atvs;
     }
+
+        #Validar e inserir tarefas de rotinas
+        public function ValidateTarRota($nDia,$data){
+            $atvs=$this->mAtividade->inserAtiRota($nDia,$data);
+            return $atvs;
+        }
     
 }

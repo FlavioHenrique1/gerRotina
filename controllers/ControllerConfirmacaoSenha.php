@@ -4,7 +4,7 @@ $confirmation=new \Models\ClassCadastro();
 
     if($validate->validateConfSenha($senha,$senhaConf)) {
         if($validate->validateStrongSenha($senha)) {
-            if($confirmation->confirmationSen($email,$token,$hashSenha)) {
+            if($confirmation->alterarSenha($email,$hashSenha,$dataNascimento)) {
                 echo "<script> alert('Senha foi alterada com sucesso!');</script>";
             }else {
                 echo "<script> alert('Não foi possível verificar seus dados!');</script>";

@@ -30,10 +30,25 @@ class ClassLogin extends ClassCrud{
         );
         $f=$b->fetch(\PDO::FETCH_ASSOC);
         $r=$b->rowCount();
+        $this->ultimoAcesso($f);
         return $arrData=[
             "data"=>$f,
             "rows"=>$r
         ];
+
+    }
+    
+    #Colocar ultimo acesso do usuário
+    public function ultimoAcesso($dados){
+        $b=$this->updateDB(
+            "users",
+            "ultimoAcesso=?",
+            "email=?",
+            array(
+                $this->dateNow,
+                $dados['email']
+            )
+        );
     }
 
     #Conta as tentativas
@@ -49,7 +64,7 @@ class ClassLogin extends ClassCrud{
         );
         $r=0;
         while($f=$b->fetch(\PDO::FETCH_ASSOC)){
-            if(strtotime($f["date"]) > strtotime($this->dateNow)-1200){
+            if(strtotime($f["date"]) > strtotime($this->dateNow)-300){
                 $r++;
             }
         }
