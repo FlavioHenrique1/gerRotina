@@ -35,13 +35,17 @@ class ClassLayout{
     }
     
     #Setar as tags do footer
-    public static function setFooter()
+    public static function setFooter($js=null)
     {
         $html="<script src='".DIRJS."zepto.min.js'></script>\n";
         $html.="<script src='".DIRJS."vanilla-masker.min.js'></script>\n";
         $html.="<script src='".DIRJS."javascript.js'></script>\n";
         $html.="<script src='".DIRJS."bootstrap.min.js'></script>\n";
         $html.="<script src='".DIRJS."bootstrap.bundle.min.js'></script>\n";
+        if($js != null){
+            $html.="<script src='".DIRJS.$js."'></script>\n";
+        }
+
         
         #JAVASCRIPT
         $html.="</body>\n";

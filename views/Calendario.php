@@ -8,6 +8,4 @@
             <div class="teste"></div>
         </div>
     </div>
-    <!-- modal-dialog modal-lg -->
-<script src="<?= DIRJS.'calendario.js'?>"></script>
-<?php \Classes\ClassLayout::setFooter();?>
+<?php \Classes\ClassLayout::setFooter('calendario.js');?>

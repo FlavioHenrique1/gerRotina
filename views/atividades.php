@@ -130,5 +130,4 @@ $cd= $_SESSION['local'];
 <script src="<?= DIRJS.'jquery-3.6.4.min.js'?>"></script>
 <link rel="stylesheet" type="text/css" href="<?= DIRJS.'DataTables\datatables.min.css' ?>">
 <script type="text/javascript" src="<?= DIRJS.'DataTables\datatables.min.js' ?>"></script>
-<script src="<?= DIRJS.'atividade.js' ?>"></script>
-<?php \Classes\ClassLayout::setFooter();?>
+<?php \Classes\ClassLayout::setFooter('atividade.js');?>

@@ -1,6 +1,6 @@
 <?php 
 #Caminhos absolutos
-$pastaInterna="DiarioDeBordo/";
+$pastaInterna="";
 define('DIRPAGE',"http://{$_SERVER['HTTP_HOST']}/{$pastaInterna}");
 
 (substr($_SERVER['DOCUMENT_ROOT'],-1)=='/')?$barra="":$barra="/";
