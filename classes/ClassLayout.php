@@ -78,7 +78,6 @@ class ClassLayout{
                                 </a>
                                 <ul class='dropdown-menu'>
                                     <li><a class='dropdown-item'  href='".DIRPAGE."calendario'>Calendário</a></li>
-                                    <li><a class='dropdown-item'aria-current='page' data-bs-toggle='modal'  data-bs-target='#exampleModal3' >Calendário Diário</a></li>
                                 </ul>
                             </li>";
                             if($permition == 'manager'){
