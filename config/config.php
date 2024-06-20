@@ -1,6 +1,6 @@
 <?php 
 #Caminhos absolutos
-$pastaInterna="";
+$pastaInterna="diariodebordo/";
 define('DIRPAGE',"http://{$_SERVER['HTTP_HOST']}/{$pastaInterna}");
 
 (substr($_SERVER['DOCUMENT_ROOT'],-1)=='/')?$barra="":$barra="/";
@@ -13,10 +13,10 @@ define('DIRJS',DIRPAGE.'lib/js/');
 define('DIRCONT',DIRPAGE.'controllers/');
 
 #Acesso ao BD
-define('HOST',"sql209.infinityfree.com");
-define('BD',"epiz_33972719_sistema");
-define('USER',"epiz_33972719");
-define('PASS',"42B7derpCH");
+define('HOST',"localhost");
+define('BD',"qualidade");
+define('USER',"root");
+define('PASS',"");
 
 include(DIRREQ."ignore/dadosUser.php");
 #Informações do servidor de email

@@ -1,3 +1,4 @@
 ignore/
 config/
 lib/js/javascript.js
+.htaccess
