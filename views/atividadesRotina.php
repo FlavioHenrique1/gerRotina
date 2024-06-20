@@ -1,15 +1,15 @@
-<?php \Classes\ClassLayout::setHeadRestrito("manager");?>
-<?php \Classes\ClassLayout::setHeader('Rotinas','Atividades de Rotina');?>
+<?php \Classes\ClassLayout::setHeadRestrito("manager"); ?>
+<?php \Classes\ClassLayout::setHeader('Rotinas', 'Atividades de Rotina'); ?>
 <?php \Classes\ClassLayout::setNav();
 @session_start();
-$cd= $_SESSION['local'];
+$cd = $_SESSION['local'];
 ?>
 
 <main class="container-fluid">
-    <div class="bg-light p-5 rounded center"style="margin-top:80px;">
-        <h1>Lista Atividades de Rotina -  <?= $cd ?></h1>
+    <div class="bg-light p-5 rounded center" style="margin-top:80px;">
+        <h1>Lista Atividades de Rotina - <?= $cd ?></h1>
         <div class="form">
-            <div  class="input-group mb-3">
+            <div class="input-group mb-3">
                 <div class="testeeee">
                     <select name='dia' id='dia' class='form-select'>
                         <option disabled selected>Dia...</option>
@@ -43,17 +43,17 @@ $cd= $_SESSION['local'];
                 </tbody>
             </table>
         </div>
-  </div>
+    </div>
 </main>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Atividade</h1>
-                <button type="button" class="btn-close" onclick="ngOnDestroy()"  data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" onclick="ngOnDestroy()" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="post" id="formAtivRot" action="<?= DIRCONT.'controllerGetAtvRot'?>">
+            <form method="post" id="formAtivRot" action="<?= DIRCONT . 'controllerGetAtvRot' ?>">
                 <div class="modal-body">
                     <div id="retorno"></div>
                     <div class="mb-3">
@@ -88,11 +88,11 @@ $cd= $_SESSION['local'];
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ngOnDestroy()">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnSalvarRot" >Salvar</button>
+                    <button type="submit" class="btn btn-success" id="btnSalvarRot">Salvar</button>
                 </div>
             </form>
         </div>
-  </div>
+    </div>
 </div>
 <!-- Fim Modal -->
 <!-- Modal IMG Calendário Mensal -->
@@ -103,14 +103,14 @@ $cd= $_SESSION['local'];
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Calendário</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-                <div class="modal-body center">
-                    <img src="<?php echo DIRIMG.'calendario.jpg'?>" alt="" srcset="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ngOnDestroy()">Cancelar</button>
-                </div>
+            <div class="modal-body center">
+                <img src="<?php echo DIRIMG . 'calendario.jpg' ?>" alt="" srcset="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ngOnDestroy()">Cancelar</button>
+            </div>
         </div>
-  </div>
+    </div>
 </div>
 <!-- Modal IMG Calendário Diario -->
 <div class="modal fade modal-xl" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -120,19 +120,19 @@ $cd= $_SESSION['local'];
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Calendário do dia</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-                <div class="modal-body center">
-                    <img src="<?php echo DIRIMG.'calendario1.jpg'?>" style="width: 100%;">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ngOnDestroy()">Cancelar</button>
-                </div>
+            <div class="modal-body center">
+                <img src="<?php echo DIRIMG . 'calendario1.jpg' ?>" style="width: 100%;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ngOnDestroy()">Cancelar</button>
+            </div>
         </div>
-  </div>
+    </div>
 </div>
 
-<script src="<?= DIRJS.'jquery-3.6.4.min.js'?>"></script>
-<link rel="stylesheet" type="text/css" href="<?= DIRJS.'DataTables\datatables.min.css' ?>">
-<script type="text/javascript" src="<?= DIRJS.'DataTables\datatables.min.js' ?>"></script>
-<script src="<?= DIRJS.'atividade.js' ?>"></script>
-<script src="<?= DIRJS.'atividadeRotina.js' ?>"></script>
-<?php \Classes\ClassLayout::setFooter();?>
+<script src="<?= DIRJS . 'jquery-3.6.4.min.js' ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?= DIRJS . 'DataTables\datatables.min.css' ?>">
+<script type="text/javascript" src="<?= DIRJS . 'DataTables\datatables.min.js' ?>"></script>
+<script src="<?= DIRJS . 'atividade.js' ?>"></script>
+<script src="<?= DIRJS . 'atividadeRotina.js' ?>"></script>
+<?php \Classes\ClassLayout::setFooter(); ?>
